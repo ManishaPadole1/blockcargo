@@ -1,0 +1,371 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+                <h1>Register</h1>
+                <p class="text-muted">Create your account</p>
+
+                <div class="card-body">
+                  <div class="btn-group" dropdown >
+
+                    <select dropdownToggle type="button" name="userrtype" (change)="showval($event)" class="btn btn-primary dropdown-toggle padding-md"  [(ngModel)]="model.usertype" #usertype="ngModel">
+                       <option *ngFor="let x of select_user_type" [value]="x">
+                          {{ x }}
+                        </option>
+                                      <!-- <option >Select User Type <span class="caret"></span></option>
+                    <option role="menuitem" ><a class="dropdown-item" href="#">Consignee</a></option>
+                    <option role="menuitem" ><a class="dropdown-item padding-md" href="#">Consigner</a></option> -->
+                    </select>
+                     </div>
+                </div>
+              <fieldset>
+                <legend>Client Information::</legend>
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                </div>
+
+                <input type="text" class="form-control" name="fname"  placeholder="First Name" autocomplete="fname" [(ngModel)]="model.fname" #fname="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && fname.invalid }" required>
+                 <div *ngIf="f.submitted && fname.invalid" class="invalid-feedback">
+                    <div *ngIf="fname.errors.required">First Name is required</div>
+                </div>
+                 </div>
+
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-user"></i></span>
+                </div>
+                <input type="text" class="form-control" name="username"  placeholder="Username" autocomplete="username"  [(ngModel)]="model.username" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required>
+                <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+                  <div *ngIf="username.errors.required">Username  is required</div>
+              </div>
+                </div>
+
+
+
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text">@</span>
+                  </div>
+                  <input type="text" class="form-control" name="email"  placeholder="Email" autocomplete="email"  [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required>
+                  <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required"> Email  is required</div>
+                  <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-lock"></i></span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Password"  autocomplete="new-password" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+                  <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+                </div>
+
+                <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+                </div>
+                     <input type="password" class="form-control" placeholder="Repeat password" utocomplete="new-password"  name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required />
+                        <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
+                            <div *ngIf="confirmPassword.errors.required">Confirm Password is required</div>
+                            <div *ngIf="confirmPassword.errors.mustMatch">Passwords must match</div>
+                        </div>
+                </div>
+              </fieldset>
+              <fieldset>
+                    <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    </div>
+                       <input type="text" class="form-control" name="client_name"  placeholder="Client Name" autocomplete="client_name" [(ngModel)]="model.client_name" #client_name="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && client_name.invalid }" required>
+                      <div *ngIf="f.submitted && client_name.invalid" class="invalid-feedback">
+                       <div *ngIf="client_name.errors.required">Client Name is required</div>
+                    </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-mobile"></i></span>
+                    </div>
+                    <input type="number" class="form-control" name="mobno"  placeholder="Mobile Number" autocomplete="mobno" [(ngModel)]="model.mobno" #mobno="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && mobno.invalid }" required>
+                    <div *ngIf="f.submitted && mobno.invalid" class="invalid-feedback">
+                       <div *ngIf="mobno.errors.required">Mobile number is required</div>
+                    </div>
+                    </div>
+
+                    <!-- <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                    </div>
+
+                    <input type="text" class="form-control" name="c_email"  placeholder="Email" autocomplete="email"  [(ngModel)]="model.c_email" #c_email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && c_email.invalid }" required>
+                    <div *ngIf="f.submitted && c_email.invalid" class="invalid-feedback">
+                    <div *ngIf="c_email.errors.required"> Email  is required</div>
+                    <div *ngIf="c_email.errors.email">Email must be a valid email address</div>
+                    </div>
+
+                    </div> -->
+                    <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-comments"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="occupation"  placeholder="Occupation" autocomplete="occupation" [(ngModel)]="model.occupation" #occupation="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && occupation.invalid }" required>
+                    <div *ngIf="f.submitted && occupation.invalid" class="invalid-feedback">
+                       <div *ngIf="occupation.errors.required">Occupation is required</div>
+                    </div>
+                    </div>
+              </fieldset>
+
+
+          <fieldset>
+                <legend>parmanent Address::</legend>
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-address-book"></i></span>
+                </div>
+                  <input type="text" class="form-control" name="area"  placeholder="Area" autocomplete="area" [(ngModel)]="model.p_area" #p_area="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && p_area.invalid }" required>
+                    <div *ngIf="f.submitted && p_area.invalid" class="invalid-feedback">
+                       <div *ngIf="p_area.errors.required">Area is required</div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-road"></i></span>
+                </div>
+                 <input type="text" class="form-control" name="flat_no"  placeholder="Plot/Flat No" autocomplete="flat_no" [(ngModel)]="model.p_flat" #p_flat="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && p_flat.invalid }" required>
+                <div *ngIf="f.submitted && p_flat.invalid" class="invalid-feedback">
+                   <div *ngIf="p_flat.errors.required">Plot/Flat no. is required</div>
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-building"></i></span>
+                </div>
+                <input type="text" class="form-control" name="app_name"  placeholder="Apparment Name" autocomplete="app_name" [(ngModel)]="model.p_app_name" #p_app_name="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && p_app_name.invalid }" required>
+                <div *ngIf="f.submitted && p_app_name.invalid" class="invalid-feedback">
+                   <div *ngIf="p_app_name.errors.required">Apparment Name is required</div>
+                </div>
+              </div>
+
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-tint"></i></span>
+                </div>
+                 <input type="text" class="form-control" name="p_ladmark"  placeholder="Landmark" autocomplete="ladmark" [(ngModel)]="model.p_ladmark" #p_ladmark="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && p_ladmark.invalid }" required>
+                <div *ngIf="f.submitted && p_ladmark.invalid" class="invalid-feedback">
+                   <div *ngIf="p_ladmark.errors.required">Landmark is required</div>
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                </div>
+                <input type="text" class="form-control" name="p_city"  placeholder="City" autocomplete="p_city" [(ngModel)]="model.p_city" #p_city="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && p_city.invalid }" required>
+                <div *ngIf="f.submitted && p_city.invalid" class="invalid-feedback">
+                   <div *ngIf="p_city.errors.required">City is required</div>
+                </div>
+                </div>
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-scribd"></i></span>
+                </div>
+                <input type="text" class="form-control" name="p_state"  placeholder="State" autocomplete="state" [(ngModel)]="model.p_state" #p_state="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && p_state.invalid }" required>
+                <div *ngIf="f.submitted && p_state.invalid" class="invalid-feedback">
+                   <div *ngIf="p_state.errors.required">State is required</div>
+                </div>
+                </div>
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-mobile"></i></span>
+                </div>
+                 <input type="number" class="form-control" name="p_contact_no"  placeholder="Contact No" autocomplete="contact_no" [(ngModel)]="model.p_contact_no" #p_contact_no="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && p_contact_no.invalid }" required>
+                <div *ngIf="f.submitted && p_contact_no.invalid" class="invalid-feedback">
+                   <div *ngIf="p_contact_no.errors.required">Contact No. is required</div>
+                </div>
+                </div>
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+                </div>
+                 <input type="text" class="form-control" name="p_email"  placeholder="Email id" autocomplete="email_id" [(ngModel)]="model.p_email" #p_email="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && p_email.invalid }" required>
+                <div *ngIf="f.submitted && p_email.invalid" class="invalid-feedback">
+                   <div *ngIf="p_email.errors.required">Email id is required</div>
+                </div>
+                </div>
+          </fieldset>
+          <input type="checkbox" placeholder="Select If Parmanent Address and Current address is same" (click)="allselect(p_area,p_flat,p_app_name,p_ladmark,p_city,p_state,p_contact_no,p_email)"> Select If Parmanent Address and Current address is same
+              <fieldset>
+                  <legend>Current Address::</legend>
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-address-book"></i></span>
+                  </div>
+                  <input type="text" class="form-control" name="c_area"  placeholder="Area"  [value]="temp_area" autocomplete="area" [(ngModel)]="model.c_area" #c_area="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && c_area.invalid }" required>
+                    <div *ngIf="f.submitted && c_area.invalid" class="invalid-feedback">
+                       <div *ngIf="c_area.errors.required">Area is required</div>
+                    </div>
+                  </div>
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-road"></i></span>
+                  </div>
+                  <input type="text" class="form-control" name="c_flatno"   [value]="temp_flat" placeholder="Plot/Flat No" autocomplete="flat_no" [(ngModel)]="model.flatno" #c_flatno="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && c_flatno.invalid }" required>
+                  <div *ngIf="f.submitted && c_flatno.invalid" class="invalid-feedback">
+                     <div *ngIf="c_flatno.errors.required">Plot/Flat no. is required</div>
+                  </div>
+                  </div>
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-building"></i></span>
+                  </div>
+                  <input type="text" class="form-control" name="c_app_name"  [value]="temp_app_name" placeholder="Apparment Name" autocomplete="app_name" [(ngModel)]="model.c_app_name" #c_app_name="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && c_app_name.invalid }" required>
+                <div *ngIf="f.submitted && c_app_name.invalid" class="invalid-feedback">
+                   <div *ngIf="c_app_name.errors.required">Apparment Name is required</div>
+                </div>
+                  </div>
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-tint"></i></span>
+                  </div>
+                  <input type="text" class="form-control" name="c_ladmark"  placeholder="Landmark" [value]="temp_ladmark" autocomplete="ladmark" [(ngModel)]="model.c_ladmark" #c_ladmark="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && c_ladmark.invalid }" required>
+                <div *ngIf="f.submitted && c_ladmark.invalid" class="invalid-feedback">
+                   <div *ngIf="c_ladmark.errors.required">Landmark is required</div>
+                </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                  </div>
+                   <input type="text" class="form-control" name="c_city"  [value]="temp_city" placeholder="City" autocomplete="c_city" [(ngModel)]="model.c_city" #c_city="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && c_city.invalid }" required>
+                  <div *ngIf="f.submitted && c_city.invalid" class="invalid-feedback">
+                     <div *ngIf="c_city.errors.required">City is required</div>
+                  </div>
+                  </div>
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-scribd"></i></span>
+                  </div>
+                  <input type="text" class="form-control" name="c_state" [value]="temp_state"  placeholder="State" autocomplete="state" [(ngModel)]="model.c_state" #c_state="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && c_state.invalid }" required>
+                  <div *ngIf="f.submitted && c_state.invalid" class="invalid-feedback">
+                     <div *ngIf="c_state.errors.required">State is required</div>
+                  </div>
+                  </div>
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-mobile"></i></span>
+                  </div>
+                  <input type="number" class="form-control" name="c_contact_no" [value]="temp_contact_no" placeholder="Contact No" autocomplete="contact_no" [(ngModel)]="model.c_contact_no" #c_contact_no="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && c_contact_no.invalid }" required>
+                <div *ngIf="f.submitted && c_contact_no.invalid" class="invalid-feedback">
+                   <div *ngIf="c_contact_no.errors.required">Contact No. is required</div>
+                </div>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">@</span>
+                    </div>
+                   <input type="text" class="form-control" name="c_email" [value]="temp_email" placeholder="Email id" autocomplete="email_id" [(ngModel)]="model.c_email" #c_email="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && c_email.invalid }" required>
+                    <div *ngIf="f.submitted && c_email.invalid" class="invalid-feedback">
+                       <div *ngIf="c_email.errors.required">Email id is required</div>
+                    </div>
+                  </div>
+              </fieldset>
+
+                <fieldset>
+                <legend>Factory Information::</legend>
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-building-o"></i></span>
+                </div>
+                 <input type="text" class="form-control" name="factory_name"  placeholder="Factory Name" autocomplete="factory_name" value="factory_name" [(ngModel)]="model.factory_name" #factory_name="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && factory_name.invalid }" required>
+                    <div *ngIf="f.submitted && factory_name.invalid" class="invalid-feedback">
+                       <div *ngIf="factory_name.errors.required">Factory Name is required</div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-user"></i></span>
+                </div>
+
+                <input type="text" class="form-control" name="factory_owner"  placeholder="Factory Owner" autocomplete="factory_owner" value="factory_owner" [(ngModel)]="model.factory_owner" #factory_owner="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && factory_owner.invalid }" required>
+                    <div *ngIf="f.submitted && factory_owner.invalid" class="invalid-feedback">
+                       <div *ngIf="factory_owner.errors.required">Factory Owner is required</div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                </div>
+
+                <input type="text" class="form-control" name="factory_prod"  placeholder="Factory Product" autocomplete="Factory_product" [(ngModel)]="model.factory_prod" #factory_prod="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && factory_prod.invalid }" required>
+                    <div *ngIf="f.submitted && factory_prod.invalid" class="invalid-feedback">
+                       <div *ngIf="factory_prod.errors.required">Factory Product is required</div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                </div>
+                <input type="text" class="form-control" name="f_city"  placeholder="City" value="f_city" autocomplete="f_city" [(ngModel)]="model.f_city" #f_city="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && f_city.invalid }" required>
+                <div *ngIf="f.submitted && f_city.invalid" class="invalid-feedback">
+                   <div *ngIf="f_city.errors.required">City is required</div>
+                </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-mobile"></i></span>
+                    </div>
+                     <input type="number" class="form-control" name="f_phone"  placeholder="Company Landline" autocomplete="phone" [(ngModel)]="model.f_phone" #f_phone="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && f_phone.invalid }" required>
+                    <div *ngIf="f.submitted && f_phone.invalid" class="invalid-feedback">
+                       <div *ngIf="f_phone.errors.required">Company Landline no. is required</div>
+                    </div>
+                  </div>
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                      </div>
+                       <input type="text" class="form-control" name="f_email"  placeholder="Company Email" value="f_email" autocomplete="f_email" [(ngModel)]="model.f_email" #f_email="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && f_email.invalid }" required>
+                      <div *ngIf="f.submitted && f_email.invalid" class="invalid-feedback">
+                         <div *ngIf="f_email.errors.required">Company Email is required</div>
+                      </div>
+                    </div>
+
+                </fieldset>
+
+                <button type="submit" class="btn btn-block btn-success" (click)="savedata(usertype,fname,username,email,password,confirmPassword,client_name,mobno,occupation,p_area,p_flat,p_app_name,p_ladmark,p_city,
+                p_state,p_contact_no,p_email,c_area,c_flatno,c_app_name,c_ladmark,c_city,c_state,c_contact_no,c_email,factory_name,factory_owner,factory_prod,f_city,f_phone,f_email)">Create Account</button>
+
+             </form>
+            </div>
+            <div class="card-footer p-4">
+              <div class="row">
+                <div class="col-6">
+                  <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

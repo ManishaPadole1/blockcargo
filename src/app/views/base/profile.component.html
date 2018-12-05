@@ -1,0 +1,329 @@
+<div class="container bootstrap snippet">
+    <form class="form" >
+         <div class="row">
+           <div class="col-sm-10"><h1>User Profile</h1></div>
+           <!-- <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div> -->
+         </div>
+         <div class="row">
+   
+             <div class="col-sm-6">
+                 <legend>Client Information::</legend>
+                 <div class="tab-content">
+                    <!-- <div class="tab-pane active" id="home"> -->
+                        <hr>
+   
+                             <div class="form-group">
+   
+                                 <div class="col-xs-6">
+                                     <label for="user_type"><h4>User Type</h4></label>
+                                     <input type="text" class="form-control" name="user_type" [(ngModel)]="localobj.user_type"  placeholder="User Type" autocomplete="user_type"  required>
+                               </div>
+                             </div>
+                              <div class="form-group">
+   
+                                  <div class="col-xs-6">
+                                      <label for="fname"><h4>First name</h4></label>
+                                      <input type="text" class="form-control" name="fname" [(ngModel)]="localobj.first_name"  placeholder="First Name" autocomplete="fname"  required>
+                                </div>
+                              </div>
+                              <div class="form-group">
+   
+                                  <div class="col-xs-6">
+                                    <label for="username"><h4>User name</h4></label>
+                                    <input type="text" class="form-control" name="username" [(ngModel)]="localobj.user_name"  placeholder="Username" autocomplete="username"   required>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+   
+                                 <div class="col-xs-6">
+                                   <label for="email"><h4>Email Id</h4></label>
+                                   <input type="text" class="form-control" name="email" [(ngModel)]="localobj.email"  placeholder="Email" autocomplete="email"  required>
+                                 </div>
+                             </div>
+   
+                              <div class="form-group">
+   
+                                  <div class="col-xs-6">
+                                      <label for="password"><h4>Password</h4></label>
+                                      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="localobj.password"  autocomplete="new-password" name="password"  required  />
+                                  </div>
+                              </div>
+                              <div class="form-group">
+   
+                                 <div class="col-xs-6">
+                                     <label for="confirmPassword"><h4>Password</h4></label>
+                                     <input type="password" class="form-control" placeholder="Repeat password"  autocomplete="new-password" name="confirmPassword"  required  />
+                                 </div>
+                             </div>
+   
+                              <div class="form-group">
+                                  <div class="col-xs-6">
+                                     <label for="client_name"><h4>Client Name</h4></label>
+                                      <input type="text" class="form-control" name="client_name" id="client_name" [(ngModel)]="localobj.client_name"  placeholder="client name"  required  />
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                 <div class="col-xs-6">
+                                    <label for="email"><h4>Email Id</h4></label>
+                                     <input type="text" class="form-control" name="email" id="email" [(ngModel)]="localobj.c_email" placeholder="email id"  required  />
+                                 </div>
+                             </div>
+                              <div class="form-group">
+   
+                                  <div class="col-xs-6">
+                                      <label for="mobno"><h4>Location</h4></label>
+                                      <input type="number" class="form-control" name="mobno" id="mobno"  [(ngModel)]="localobj.mobno" placeholder="mobno id"  required  />
+                                  </div>
+                              </div>
+   
+   
+                              <div class="form-group">
+   
+                                 <div class="col-xs-6">
+                                     <label for="occupation"><h4>Occupation</h4></label>
+                                     <input type="text" class="form-control" name="occupation" id="occupation" [(ngModel)]="localobj.occupation" placeholder="occupation"  required  />
+                                 </div>
+                             </div>
+   
+                              <!-- <div class="form-group">
+                                   <div class="col-xs-12">
+                                        <br>
+                                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                         <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                    </div>
+                              </div> -->
+   
+   
+                      <hr>
+   
+                     <!-- </div>/tab-pane -->
+                   </div><!--/col-9-->
+            </div>
+   
+           <div class="col-sm-6">
+               <legend>Factory Information::</legend>
+              <div class="tab-content">
+                 <!-- <div class="tab-pane active" id="home"> -->
+                     <hr>
+   
+                           <div class="form-group">
+                               <div class="col-xs-6">
+                                  <label for="factory_name"><h4>Factory Name</h4></label>
+                                   <input type="text" class="form-control" name="factory_name" [(ngModel)]="localobj.factory_name"  id="factory_name" placeholder="factory_name"  required  />
+                               </div>
+                           </div>
+                           <div class="form-group">
+                               <div class="col-xs-6">
+                                  <label for="factory_owner"><h4>Factory Owner</h4></label>
+                                   <input type="text" class="form-control" name="factory_owner" [(ngModel)]="localobj.factory_owner" id="factory_owner" placeholder="factory_owner"  required  />
+                               </div>
+                           </div>
+   
+                           <div class="form-group">
+                               <div class="col-xs-6">
+                                  <label for="factory_prod"><h4>Factory Product</h4></label>
+                                   <input type="text" class="form-control" name="factory_prod"  [(ngModel)]="localobj.factory_prod" id="factory_prod" placeholder="factory_prod"  required  />
+                               </div>
+                           </div>
+                           <div class="form-group">
+                               <div class="col-xs-6">
+                                  <label for="f_city"><h4>City</h4></label>
+                                   <input type="text" class="form-control" name="f_city" id="f_city"  [(ngModel)]="localobj.f_city" placeholder="f_city"  required  />
+                               </div>
+                           </div>
+                           <div class="form-group">
+                               <div class="col-xs-6">
+                                  <label for="f_phone"><h4>Company Landline </h4></label>
+                                   <input type="number" class="form-control" name="f_phone"  [(ngModel)]="localobj.f_phone" id="f_phone" placeholder="f_phone"  required  />
+                               </div>
+                           </div>
+                           <div class="form-group">
+                               <div class="col-xs-6">
+                                  <label for="f_email"><h4>Company Email </h4></label>
+                                   <input type="text" class="form-control" name="f_email" id="f_email" [(ngModel)]="localobj.f_email" placeholder="f_email"  required  />
+                               </div>
+                           </div>
+   
+                           <!-- <div class="form-group">
+                                <div class="col-xs-12">
+                                     <br>
+                                     <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                      <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                 </div>
+                           </div> -->
+   
+   
+                   <hr>
+   
+                  <!-- </div>/tab-pane -->
+                </div><!--/col-9-->
+         </div>
+         <!--/row-->
+   
+           </div>
+   
+   <!---->
+   <div class="row">
+   
+       <div class="col-sm-6">
+           <legend>Permanent Address::</legend>
+           <div class="tab-content">
+              <!-- <div class="tab-pane active" id="home"> -->
+                  <hr>
+                    <!-- <form class="form" action="##" method="post" id="registrationForm"> -->
+                       <div class="form-group">
+   
+                           <div class="col-xs-6">
+                               <label for="p_area"><h4>Area</h4></label>
+                               <input type="text" class="form-control" name="p_area"  placeholder="Area" autocomplete="p_area"  required>
+                         </div>
+                       </div>
+                        <div class="form-group">
+   
+                            <div class="col-xs-6">
+                                <label for="p_flat"><h4>Flat/Plot No</h4></label>
+                                <input type="text" class="form-control" name="p_flat"  placeholder="flat no" autocomplete="flat no"  required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+   
+                            <div class="col-xs-6">
+                              <label for="p_app_name"><h4>Apparment name</h4></label>
+                              <input type="text" class="form-control" name="p_app_name"  placeholder="apparment name" autocomplete="apparment name"   required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+   
+                           <div class="col-xs-6">
+                             <label for="p_ladmark"><h4>Landmark</h4></label>
+                             <input type="text" class="form-control" name="p_ladmark"  placeholder="Landmark" autocomplete="email"  required>
+                           </div>
+                       </div>
+   
+                        <div class="form-group">
+   
+                            <div class="col-xs-6">
+                                <label for="p_city"><h4>City</h4></label>
+                                <input type="text" class="form-control" placeholder="p_city"  autocomplete="p_city" name="city"  required  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+   
+                           <div class="col-xs-6">
+                               <label for="p_state"><h4>State</h4></label>
+                               <input type="text" class="form-control" placeholder="p_state"  autocomplete="state" name="p_state"  required  />
+                           </div>
+                       </div>
+   
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                               <label for="p_contact_no"><h4>Contact No</h4></label>
+                                <input type="number" class="form-control" name="p_contact_no" id="p_contact_no" placeholder="contact no"  required  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                           <div class="col-xs-6">
+                              <label for="p_email"><h4>Email Id</h4></label>
+                               <input type="text" class="form-control" name="p_email" id="p_email" placeholder="email id"  required  />
+                           </div>
+                       </div>
+   
+                        <!-- <div class="form-group">
+                             <div class="col-xs-12">
+                                  <br>
+                                  <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                   <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                              </div>
+                        </div> -->
+                  <!-- </form> -->
+   
+                <hr>
+   
+               <!-- </div>/tab-pane -->
+             </div><!--/col-9-->
+      </div>
+   
+     <div class="col-sm-6">
+         <legend>Current Address::</legend>
+        <div class="tab-content">
+           <!-- <div class="tab-pane active" id="home"> -->
+               <hr>
+                 <!-- <form class="form" > -->
+                     <div class="form-group">
+   
+                         <div class="col-xs-6">
+                             <label for="c_area"><h4>Area</h4></label>
+                             <input type="text" class="form-control" name="c_area"  placeholder="Area" autocomplete="c_area"  required>
+                       </div>
+                     </div>
+                      <div class="form-group">
+   
+                          <div class="col-xs-6">
+                              <label for="c_flatno"><h4>Flat/Plot No</h4></label>
+                              <input type="text" class="form-control" name="c_flatno"  placeholder="flat no" autocomplete="flat no"  required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+   
+                          <div class="col-xs-6">
+                            <label for="c_app_name"><h4>Apparment name</h4></label>
+                            <input type="text" class="form-control" name="c_app_name"  placeholder="apparment name" autocomplete="apparment name"   required>
+                          </div>
+                      </div>
+                      <div class="form-group">
+   
+                         <div class="col-xs-6">
+                           <label for="c_ladmark"><h4>Landmark</h4></label>
+                           <input type="text" class="form-control" name="c_ladmark"  placeholder="Landmark" autocomplete="Landmark"  required>
+                         </div>
+                     </div>
+   
+                      <div class="form-group">
+   
+                          <div class="col-xs-6">
+                              <label for="c_city"><h4>City</h4></label>
+                              <input type="text" class="form-control" placeholder="c_city"  autocomplete="c_city" name="c_city"  required  />
+                          </div>
+                      </div>
+                      <div class="form-group">
+   
+                         <div class="col-xs-6">
+                             <label for="c_state"><h4>State</h4></label>
+                             <input type="text" class="form-control" placeholder="c_state"  autocomplete="state" name="c_state"  required  />
+                         </div>
+                     </div>
+   
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="c_contact_no"><h4>Contact No</h4></label>
+                              <input type="number" class="form-control" name="c_contact_no" id="c_contact_no" placeholder="contact no"  required  />
+                          </div>
+                      </div>
+                      <div class="form-group">
+                         <div class="col-xs-6">
+                            <label for="c_email"><h4>Email Id</h4></label>
+                             <input type="text" class="form-control" name="c_email" id="c_email" placeholder="email id"  required  />
+                         </div>
+                     </div>
+   
+   
+               <!-- </form> -->
+   
+             <hr>
+   
+            <!-- </div>/tab-pane -->
+          </div><!--/col-9-->
+   </div>
+   <!--/row-->
+   
+     </div>
+     <div class="form-group">
+         <div class="col-xs-12">
+              <br>
+              <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+               <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+          </div>
+    </div>
+   
+   </form>
+    </div>

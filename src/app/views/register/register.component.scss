@@ -1,0 +1,17 @@
+.app-body{
+    // background: url('../../../assets/img/cargos/tr1.jpg')no-repeat center center fixed; 
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+
+    background-image: linear-gradient(#667db6,#0082c8, #0082c8,#667db6)
+
+}
+input[type="text"]{
+    border: none; outline: none; border-bottom: 1px solid #23acec;
+}
+.fa, i{
+    color: #23acec;
+}
+// color codes ::#23acec -> blue #4dbc74 -> green
